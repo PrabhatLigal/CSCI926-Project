@@ -1,11 +1,5 @@
 # CSCI926-Project
 
-Requirement
+Setup and guide
 
-- Python
-- pip
-
-
-Steps
-
-- pip install
+https://jupyter-notebook.readthedocs.io/en/stable/contributing.html
