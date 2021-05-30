@@ -36,9 +36,7 @@ class TestLogRequest(unittest.TestCase):
                 err_count += 2
     
             log.log_request(handler, log=logger, log_json=True)
-            # Since the status was 500 there should be two calls to log.error,
-            # one with the request headers and another with the other request
-            # parameters.
+
         self.assertEqual(err_count, logger.error.call_count)
         self.assertEqual(debug_count, logger.debug.call_count)
         self.assertEqual(warning_count, logger.warning.call_count)
