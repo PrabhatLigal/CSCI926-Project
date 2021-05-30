@@ -1,27 +1,13 @@
-"""Test HTML utils"""
-
-# Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
-
-import ctypes
-import os
-import sys
-
 import pytest
-
-from traitlets.tests.utils import check_help_all_output
-from notebook.utils import url_escape, url_unescape, is_hidden, is_file_hidden
+from notebook.utils import url_escape, url_unescape
 
 
 
 
 
-def test_url_escape_space():
-    #addtional
-  
+def test_url_escape_space():  
     path = url_escape('/some test case for spaces/')
     assert path == '/some%20test%20case%20for%20spaces/'
-
 
 
 
@@ -33,7 +19,7 @@ def test_url_escape_space():
 
 def test_url_escape_1():
     #test for ~
-    #suprising this fails  and rests pass
+    #suprising this fails git and rests pass
     path = url_escape('hostname/~something/')
     assert path == 'hostname/%7Esomething/'
 
@@ -116,6 +102,9 @@ def test_url_unescape():
     path = url_unescape('hostname/%3C%3E%2B%7B%7C%7D%5B%5D%7E%27%3B%3F%3Asomething/')
     assert path == 'hostname/<>+{|}[]~\';?:something/'
 
-    
+def test_url_unescape_1():
+    path = url_escape('/some%20test%20case%20for%20spaces')
+    assert path == '/some test case for spaces'
 
+    
 
