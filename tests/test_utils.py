@@ -14,17 +14,16 @@ def test_url_escape_space():
 #https://en.wikipedia.org/wiki/Percent-encoding
 #exisitng test covers =    / !@$#%^&* / test %^ notebook @#$ name.ipynb
 #missing codes =    < > +  { } [] | ~   ' ; ? : 
-#   !	 #	$	%	&	'	(	)	*	+	,	/	:	;	=	?	@	[	]
+#   !	 #	$	%	&	'	(	)	*	+	,	/	:	;	=	?	@	[	]  
 # %21	%23	%24	%25	%26	%27	%28	%29	%2A	%2B	%2C	%2F	%3A	%3B	%3D	%3F	%40	%5B	%5D
 
 def test_url_escape_1():
     #test for ~
-    #suprising this fails git and rests pass
     path = url_escape('hostname/~something/')
     assert path == 'hostname/%7Esomething/'
 
 
-def test_url_escape_2():
+def test_url_escape_2():    
     #test for <
     path = url_escape('hostname/<something/')
     assert path == 'hostname/%3Csomething/'
@@ -38,7 +37,7 @@ def test_url_escape_4():
     #test for +
     path = url_escape('hostname/+something/')
     assert path == 'hostname/%2Bsomething/'
-
+    
 def test_url_escape_5():
     #test for {
     path = url_escape('hostname/{something/')
@@ -103,7 +102,7 @@ def test_url_unescape():
     assert path == 'hostname/<>+{|}[]~\';?:something/'
 
 def test_url_unescape_1():
-    path = url_escape('/some%20test%20case%20for%20spaces')
+    path = url_unescape('/some%20test%20case%20for%20spaces')
     assert path == '/some test case for spaces'
 
     
